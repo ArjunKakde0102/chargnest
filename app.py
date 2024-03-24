@@ -20,7 +20,7 @@ database_name = 'freedb_Authontication'
 connection_string = f"mysql+pymysql://{hostname}:{port}/{database_name}"
 
 engine = create_engine(connection_string, connect_args={'user': username, 'password': password})
-connection = sql_engine.raw_connection()
+connection = engine.raw_connection()
 
 
 #engine = create_engine('mysql+pymysql://sql.freedb.tech:CWctm%YHDud4@QY@freedb_Arjun:3306/freedb_Authontication')
@@ -73,7 +73,7 @@ def login():
 
         login_data =  {'user_id' : [username], 'login_passkey': [login_password]}
         login_dataframe = pd.DataFrame(login_data)
-        login_dataframe.to_sql(name= 'login_page' , connection, if_exists='append', index=False)
+        login_dataframe.to_sql(name= 'login_page' ,connection, if_exists='append', index=False)
 
         dataframe_password = pd.read_sql_query('select register_password from register_page',con=engine)
         hash_login_password = hashlib.sha256(login_password.encode()).hexdigest()
