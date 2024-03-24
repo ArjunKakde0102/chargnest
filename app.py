@@ -58,7 +58,7 @@ def register():
 
         register_data = {'name' : [name],'register_password':[register_password], 'mobile' : [mobile], 'email':[email], 'vehicle_type' : [vehicle_type], 'vehicle_number': [vehicle_number], 'purchase_date': [purchase_date]}
         register_dataframe = pd.DataFrame(register_data)
-        register_dataframe.to_sql(name= 'register_page' , connection, if_exists='append', index=False)
+        register_dataframe.to_sql(name= 'register_page' , connection, index=False, if_exists='append')
         return redirect('/login')
     return render_template("register.html")
 
@@ -73,7 +73,7 @@ def login():
 
         login_data =  {'user_id' : [username], 'login_passkey': [login_password]}
         login_dataframe = pd.DataFrame(login_data)
-        login_dataframe.to_sql(name= 'login_page' ,connection, if_exists='append', index=False)
+        login_dataframe.to_sql(name= 'login_page' ,connection,  index=False, if_exists='append')
 
         dataframe_password = pd.read_sql_query('select register_password from register_page',con=engine)
         hash_login_password = hashlib.sha256(login_password.encode()).hexdigest()
