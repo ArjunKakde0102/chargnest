@@ -11,10 +11,10 @@ from urllib.parse import quote_plus
 
 
 username =   'freedb_Arjun'
-password = 'CWctm%YHDud4@QY'
+password = '9@z5*KK&eFcj3ed'
 hostname = 'sql.freedb.tech'
 port = 3306
-database_name = 'freedb_Authontication'
+database_name = 'freedb_Authentication'
 
 
 connection_string = f"mysql+pymysql://{hostname}:{port}/{database_name}"
