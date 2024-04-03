@@ -38,7 +38,7 @@ app.secret_key = '12334'
 
 @app.route('/')
 def index():
-    return "h"
+    return render_template("dashboard.html")
 
 
 
