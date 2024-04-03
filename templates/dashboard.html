@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .menu-bar {
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 20px;
+      position: fixed;
+      top: 0;
+      width: 90%;
+      max-width: 700px; /* Increased maximum width */
+      left: 50%; 
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+    .menu-bar .logo {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .menu-bar .buttons {
+      display: flex;
+      align-items: center;
+    }
+    .menu-bar .buttons button {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      margin-left: 15px;
+      padding: 8px 10px;
+    }
+    .menu-bar .buttons button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .menu-bar .buttons button:first-child {
+      margin-left: 0;
+    }
+    .menu-bar .buttons button i {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu-bar">
+  <div class="logo">Your EV Charging App</div>
+  <div class="buttons">
+    <button>
+      <i class="fas fa-user"></i>
+      Login
+    </button>
+    <button>
+      <i class="fas fa-user-plus"></i>
+      Register
+    </button>
+    <button>
+      <i class="fas fa-plug"></i>
+      Charge
+    </button>
+    <button>
+      <i class="fas fa-wallet"></i>
+      Wallet
+    </button>
+    <button>
+      <i class="fas fa-battery-empty"></i>
+      Discharge
+    </button>
+  </div>
+</div>
+
+<!-- Include Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+</html>
