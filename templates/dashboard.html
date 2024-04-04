@@ -9,80 +9,78 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      overflow-x: hidden; /* Hide horizontal scrollbar */
     }
     .menu-bar {
       background-color: #333;
       color: #fff;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
       position: fixed;
       top: 0;
-      width: 90%;
-      max-width: 700px; /* Increased maximum width */
-      left: 50%; 
-      transform: translateX(-50%);
+      left: -250px; /* Initially hidden off screen */
+      height: 100%;
+      width: 250px;
+      transition: left 0.3s ease; /* Transition for smooth sliding */
       z-index: 1000;
     }
-    .menu-bar .logo {
-      font-size: 18px;
-      font-weight: bold;
+    .menu-bar.active {
+      left: 0; /* Slide in when active */
     }
-    .menu-bar .buttons {
-      display: flex;
-      align-items: center;
+    .menu-bar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
     .menu-bar .buttons button {
       background: none;
       border: none;
       color: #fff;
       cursor: pointer;
-      font-size: 14px;
-      margin-left: 15px;
-      padding: 8px 10px;
-    }
-    .menu-bar .buttons button:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-    .menu-bar .buttons button:first-child {
-      margin-left: 0;
+      font-size: 18px;
+      margin-bottom: 10px;
+      padding: 10px;
     }
     .menu-bar .buttons button i {
-      margin-right: 5px;
+      margin-right: 10px;
+    }
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      cursor: pointer;
+      z-index: 1001; /* Ensure it's above menu bar */
     }
   </style>
 </head>
 <body>
 
-<div class="menu-bar">
+<div class="menu-toggle" onclick="toggleMenu()">
+  <i class="fas fa-bars" style="font-size: 24px;"></i> <!-- Font Awesome menu icon -->
+</div>
+
+<div class="menu-bar" id="menuBar">
   <div class="logo">Your EV Charging App</div>
   <div class="buttons">
-    <button>
-      <i class="fas fa-user"></i>
-      Login
-    </button>
-    <button>
-      <i class="fas fa-user-plus"></i>
-      Register
-    </button>
-    <button>
-      <i class="fas fa-plug"></i>
-      Charge
-    </button>
-    <button>
-      <i class="fas fa-wallet"></i>
-      Wallet
-    </button>
-    <button>
-      <i class="fas fa-battery-empty"></i>
-      Discharge
-    </button>
+    <button><i class="fas fa-user"></i> Login</button>
+    <button><i class="fas fa-user-plus"></i> Register</button>
+    <button><i class="fas fa-plug"></i> Charge</button>
+    <button><i class="fas fa-wallet"></i> Wallet</button>
+    <button><i class="fas fa-battery-empty"></i> Discharge</button>
   </div>
 </div>
 
 <!-- Include Font Awesome for icons -->
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById("menuBar");
+    menu.classList.toggle("active");
+  }
+</script>
 
 </body>
 </html>
